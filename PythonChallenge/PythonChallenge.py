@@ -43,12 +43,12 @@ def problem2():
     unique_char_counter = dict()
     with open('problem2_mess_below.txt', encoding='utf-8') as p2_file:
         # I want to read the file character by character but I can't really figure out how.
-        for p2_line in p2_file.read(1):
+        for p2_line in p2_file:
             # I can't figure out how to iterate through the stringgnngngngngngngn 
             for char_key in p2_line:
                 try:
                     # If there is already a key counting the characters, add to it.
-                    unique_char_counter[char_key] += unique_char_counter.get(char_key)
+                    unique_char_counter[char_key] += 1
                 except KeyError:
                     # Key does not yet exist, add it with an inital count of 1
                     unique_char_counter[char_key] = 1
