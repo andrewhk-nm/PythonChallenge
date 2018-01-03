@@ -25,6 +25,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="problem2_mess_below.txt" />
+    <Content Include="problem3_source_mess.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in

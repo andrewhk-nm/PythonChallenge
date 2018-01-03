@@ -4,6 +4,16 @@ http://www.pythonchallenge.com/
 
 import os
 
+class HelperFunctions:
+    """ Store my helper functions here for easier testing and re-use.
+    """
+    def get_char_count(filename):
+        """ Wrapper for the problem2 solution.
+        Takes the filename of a text file, and returns a dictionary. 
+        The keys are the character and the value is the character count.
+        """
+        problem2(filename, print_debug_info=True)
+
 def problem0():
     """ http://www.pythonchallenge.com/pc/def/0.html
     Answer = 274877906944
@@ -33,8 +43,13 @@ def problem1():
     print('http://www.pythonchallenge.com/pc/def/map.html'.translate(k_to_m_dict))
 
 
-def problem2():
-    """ http://www.pythonchallenge.com/pc/def/ocr.html
+def problem2(filename='problem2_mess_below.txt', print_debug_info=True):
+    """ takes the file name and counts the characters.
+    Returns a dictionary of the character and the count.
+    Allows an optional parameter, print_debug_info, that 
+    if True will print extra debug info, if False it won't.
+
+    http://www.pythonchallenge.com/pc/def/ocr.html
     recognize the characters. maybe they are in the book, 
     but MAYBE they are in the page source.
     Answer = "equality"
@@ -42,7 +57,7 @@ def problem2():
 
     # Create an empty dictionary to store the counts of characters
     char_counter = dict()
-    with open('problem2_mess_below.txt', encoding='utf-8') as p2_file:
+    with open(filename, encoding='utf-8') as p2_file:
         # I want to read the file character by character but I can't really figure out how.
         for p2_line in p2_file:
             # I can't figure out how to iterate through the stringgnngngngngngngn 
@@ -54,13 +69,29 @@ def problem2():
                     # Key does not yet exist, add it with an inital count of 1
                     char_counter[char_key] = 1
 
-    print(char_counter)
+    if print_debug_info:
+        print('char_counter: {}'.format(char_counter))
 
-    # Print the rare (Unique) characters only
-    print('Print the rare (Unique) characters only.')
-    for k, v in char_counter.items():
-        if v == 1:
-            print(k)
+        # Print the rare (Unique) characters only
+        print('Print the rare (Unique) characters only.')
+        for k, v in char_counter.items():
+            if v == 1:
+                print(k)
+
+    return char_counter
+
+def problem3():
+    """ http://www.pythonchallenge.com/pc/def/equality.html
+        One small letter, surrounded by EXACTLY three big bodyguards on each of its sides.
+    """
+
+    print("entering #3")
+
+    char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
+
+    print('char_dict = \n{}'.format(char_dict))
+
+
 
 def problem2_wiki():
     """ This problem is "Full solution, get source & open answer page
@@ -85,10 +116,6 @@ def problem_test():
     wb.open_new_tab('http://www.pythonchallenge.com/pc/def/ocr.html')
     
 
-def problem3():
-    """ http://www.pythonchallenge.com/pc/def/equality.html
-    Not started yet!
-    """
-
 if __name__ == '__main__':
-    problem_test
+    print("__main__")
+    problem3()
