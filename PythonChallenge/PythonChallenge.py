@@ -12,7 +12,7 @@ class HelperFunctions:
         Takes the filename of a text file, and returns a dictionary. 
         The keys are the character and the value is the character count.
         """
-        problem2(filename, print_debug_info=True)
+        return problem2(filename, print_debug_info=True)
 
 def problem0():
     """ http://www.pythonchallenge.com/pc/def/0.html
@@ -90,7 +90,10 @@ def problem3():
     char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
 
     print('char_dict = \n{}'.format(char_dict))
-
+    print('char_dict, keys only = {}'.format(char_dict.keys()))
+    a_list = list(char_dict.keys())
+    a_list.sort()
+    print('a_list = {}'.format(a_list)) # Contains all letters a-z and A-Z
 
 
 def problem2_wiki():
