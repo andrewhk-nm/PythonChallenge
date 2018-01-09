@@ -14,6 +14,16 @@ class HelperFunctions:
         """
         return problem2(filename, print_debug_info=True)
 
+    def gen_char_neighbor(filename):
+        """ take a filename of a text file in block format.
+        generates the neighbors for the next char.
+        returns dict: {(char, position): [1, 2, 3, 4, 6, 7, 8, 9] where:
+        123
+        456
+        789
+        """
+        yield {1:2}
+
 def problem0():
     """ http://www.pythonchallenge.com/pc/def/0.html
     Answer = 274877906944
@@ -88,12 +98,28 @@ def problem3():
     print("entering #3")
 
     char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
+    neighbors_dict = HelperFunctions.gen_char_neighbor('problem3_source_mess.txt')
 
     print('char_dict = \n{}'.format(char_dict))
     print('char_dict, keys only = {}'.format(char_dict.keys()))
     a_list = list(char_dict.keys())
     a_list.sort()
     print('a_list = {}'.format(a_list)) # Contains all letters a-z and A-Z
+    # I think the answer will be this:
+    # BBB
+    # axa
+    # aaa
+    # or
+    # aBB
+    # axB
+    # aaa
+    # etc.
+    # So for each letter in the block, check each surrounding letter, and count the Big letters.
+    #     (x-1)-row_length  x-row_length  (x+1)-row_length 
+    #     (x-1)             x             (x+1)
+    #     (x-1)+row_length  x+row_length  (x+1)+row_length 
+    # If Count(outsides) = 3 big letters then success
+
 
 
 def problem2_wiki():

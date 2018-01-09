@@ -22,6 +22,9 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="PythonChallenge.py" />
+    <Compile Include="PythonChallenge_test1.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="problem2_mess_below.txt" />
