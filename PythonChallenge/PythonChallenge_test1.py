@@ -2,8 +2,8 @@ import unittest
 from PythonChallenge import HelperFunctions
 
 class Test_PythonChallenge_test1(unittest.TestCase):
-    known_answers_gen_char_neighbor = {'U': ['k','A','e','M','K','E','N','i'],
-                                       'K': ['A','e','w','U','L','N','i','h'],
+    known_answers_gen_char_neighbor = {'U': 'kAeMKENi',
+                                       'K': 'AewULNih',
                                        }
     
     def test_HelperFunctions_gen_char_neighbor_known_answers(self):

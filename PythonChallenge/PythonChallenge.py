@@ -19,7 +19,7 @@ class HelperFunctions:
     def gen_char_neighbor(filename):
         """ take a filename of a text file in block format.
         generates the neighbors for the next char.
-        returns dict: {(char, position): [1, 2, 3, 4, 6, 7, 8, 9] where:
+        returns dict: {char: [1, 2, 3, 4, 6, 7, 8, 9] where:
         123
         456
         789
@@ -29,12 +29,12 @@ class HelperFunctions:
             for a_line in a_file:
                 a_list.append(a_line.rstrip())
 
-        print('a_list={}'.format(a_list))
+        #print('a_list={}'.format(a_list))
 
         # Start at line 2 char 2, end at the 2nd to last line, 2nd to last char
         for line in range(1, len(a_list) - 1):
             for char in range(1, len(a_list[line]) - 1):
-                print('a_list[{}][{}] = {}'.format(line, char, a_list[line][char]))
+                #print('a_list[{}][{}] = {}'.format(line, char, a_list[line][char]))
                 # So for each letter in the block, check each surrounding letter, and count the Big letters.
                 #     (x-1)-row_length  x-row_length  (x+1)-row_length 
                 #     (x-1)             x             (x+1)
@@ -49,15 +49,17 @@ class HelperFunctions:
                 line_char_7 = Line_char(line + 1, char - 1)
                 line_char_8 = Line_char(line + 1, char)
                 line_char_9 = Line_char(line + 1, char + 1)
-                yield {a_list[line][char]: [a_list[line_char_1.line][line_char_1.char],
-                                            a_list[line_char_2.line][line_char_2.char],
-                                            a_list[line_char_3.line][line_char_3.char],
-                                            a_list[line_char_4.line][line_char_4.char],
-                                            a_list[line_char_6.line][line_char_6.char],
-                                            a_list[line_char_7.line][line_char_7.char],
-                                            a_list[line_char_8.line][line_char_8.char],
-                                            a_list[line_char_9.line][line_char_9.char],
-                                           ]}
+                line_char_all = ''.join([a_list[line_char_1.line][line_char_1.char],
+                                        a_list[line_char_2.line][line_char_2.char],
+                                        a_list[line_char_3.line][line_char_3.char],
+                                        a_list[line_char_4.line][line_char_4.char],
+                                        a_list[line_char_6.line][line_char_6.char],
+                                        a_list[line_char_7.line][line_char_7.char],
+                                        a_list[line_char_8.line][line_char_8.char],
+                                        a_list[line_char_9.line][line_char_9.char],
+                                        ])
+                                
+                yield {a_list[line][char], line_char_all}
 
 
         #yield {1:2}
@@ -135,14 +137,14 @@ def problem3():
 
     print("entering #3")
 
-    char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
-    neighbors_dict = HelperFunctions.gen_char_neighbor('problem3_source_mess.txt')
+    #char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
+    
 
-    print('char_dict = \n{}'.format(char_dict))
-    print('char_dict, keys only = {}'.format(char_dict.keys()))
-    a_list = list(char_dict.keys())
-    a_list.sort()
-    print('a_list = {}'.format(a_list)) # Contains all letters a-z and A-Z
+    #print('char_dict = \n{}'.format(char_dict))
+    #print('char_dict, keys only = {}'.format(char_dict.keys()))
+    #a_list = list(char_dict.keys())
+    #a_list.sort()
+    #print('a_list = {}'.format(a_list)) # Contains all letters a-z and A-Z
     # I think the answer will be this:
     # BBB
     # axa
@@ -157,6 +159,18 @@ def problem3():
     #     (x-1)             x             (x+1)
     #     (x-1)+row_length  x+row_length  (x+1)+row_length 
     # If Count(outsides) = 3 big letters then success
+
+    gen_neighbors_dict = HelperFunctions.gen_char_neighbor('problem3_source_mess.txt')
+    #neighbors_dict = gen_neighbors_dict()
+    for k, v in gen_neighbors_dict:
+        print('k={}, v={}'.format(k,v))
+        if string.ascii_uppercase.find(k) == -1:
+            caps = v.strip(string.ascii_lowercase)
+
+    a_test = ['A', 'B', 'c']
+    str.strip(string.ascii_uppercase)
+    string.ascii_uppercase
+
 
 
 
