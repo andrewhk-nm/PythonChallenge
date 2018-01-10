@@ -3,6 +3,8 @@ http://www.pythonchallenge.com/
 """
 
 import os
+import string
+from collections import namedtuple
 
 class HelperFunctions:
     """ Store my helper functions here for easier testing and re-use.
@@ -22,7 +24,43 @@ class HelperFunctions:
         456
         789
         """
-        yield {1:2}
+        a_list = list()
+        with open(filename, encoding='utf-8') as a_file:
+            for a_line in a_file:
+                a_list.append(a_line.rstrip())
+
+        print('a_list={}'.format(a_list))
+
+        # Start at line 2 char 2, end at the 2nd to last line, 2nd to last char
+        for line in range(1, len(a_list) - 1):
+            for char in range(1, len(a_list[line]) - 1):
+                print('a_list[{}][{}] = {}'.format(line, char, a_list[line][char]))
+                # So for each letter in the block, check each surrounding letter, and count the Big letters.
+                #     (x-1)-row_length  x-row_length  (x+1)-row_length 
+                #     (x-1)             x             (x+1)
+                #     (x-1)+row_length  x+row_length  (x+1)+row_length 
+                # If Count(outsides) = 3 big letters then success
+                Line_char = namedtuple('Line_char', 'line char')
+                line_char_1 = Line_char(line - 1, char - 1)
+                line_char_2 = Line_char(line - 1, char)
+                line_char_3 = Line_char(line - 1, char + 1)
+                line_char_4 = Line_char(line, char - 1)
+                line_char_6 = Line_char(line, char + 1)
+                line_char_7 = Line_char(line + 1, char - 1)
+                line_char_8 = Line_char(line + 1, char)
+                line_char_9 = Line_char(line + 1, char + 1)
+                yield {a_list[line][char]: [a_list[line_char_1.line][line_char_1.char],
+                                            a_list[line_char_2.line][line_char_2.char],
+                                            a_list[line_char_3.line][line_char_3.char],
+                                            a_list[line_char_4.line][line_char_4.char],
+                                            a_list[line_char_6.line][line_char_6.char],
+                                            a_list[line_char_7.line][line_char_7.char],
+                                            a_list[line_char_8.line][line_char_8.char],
+                                            a_list[line_char_9.line][line_char_9.char],
+                                           ]}
+
+
+        #yield {1:2}
 
 def problem0():
     """ http://www.pythonchallenge.com/pc/def/0.html
