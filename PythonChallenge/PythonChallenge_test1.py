@@ -4,6 +4,7 @@ from PythonChallenge import HelperFunctions
 class Test_PythonChallenge_test1(unittest.TestCase):
     known_answers_gen_char_neighbor = {'U': 'kAeMKENi',
                                        'K': 'AewULNih',
+                                       'L': 'ewtKEihr'
                                        }
     
     def test_HelperFunctions_gen_char_neighbor_known_answers(self):
