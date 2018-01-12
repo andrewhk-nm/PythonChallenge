@@ -19,7 +19,7 @@ class HelperFunctions:
     def gen_char_neighbor(filename):
         """ take a filename of a text file in block format.
         generates the neighbors for the next char.
-        returns dict: {char: [1, 2, 3, 4, 6, 7, 8, 9] where:
+        returns tuple: (char, '12346789') where:
         123
         456
         789
@@ -59,10 +59,9 @@ class HelperFunctions:
                                         a_list[line_char_9.line][line_char_9.char],
                                         ])
                                 
-                yield {a_list[line][char], line_char_all}
+                yield (a_list[line][char], line_char_all)
 
 
-        #yield {1:2}
 
 def problem0():
     """ http://www.pythonchallenge.com/pc/def/0.html
@@ -160,16 +159,21 @@ def problem3():
     #     (x-1)+row_length  x+row_length  (x+1)+row_length 
     # If Count(outsides) = 3 big letters then success
 
-    gen_neighbors_dict = HelperFunctions.gen_char_neighbor('problem3_source_mess.txt')
-    #neighbors_dict = gen_neighbors_dict()
-    for k, v in gen_neighbors_dict:
-        print('k={}, v={}'.format(k,v))
-        if string.ascii_uppercase.find(k) == -1:
-            caps = v.strip(string.ascii_lowercase)
+    gen_neighbors = HelperFunctions.gen_char_neighbor('problem3_source_mess.txt')
+    for char, neighbors in gen_neighbors:
+        print('char={}, neighbors={}'.format(char, neighbors))
+        big_neighbor_count = 0
+        if string.ascii_uppercase.find(char) == -1:
+            for c in neighbors:
+                if string.ascii_uppercase.find(c) > -1:
+                    big_neighbor_count += 1
+            if big_neighbor_count == 3:
+                # Exactly 3 neighbors were found. return that info and break.
+                # didn't work. I think I need to check only the sides for bigs, and make sure
+                # the corners are small.
+                print('Three big bodyguards found! char={}, neighbors={}'.format(char, neighbors))
+                break
 
-    a_test = ['A', 'B', 'c']
-    str.strip(string.ascii_uppercase)
-    string.ascii_uppercase
 
 
 
