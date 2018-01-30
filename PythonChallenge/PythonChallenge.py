@@ -9,6 +9,43 @@ from collections import namedtuple
 class HelperFunctions:
     """ Store my helper functions here for easier testing and re-use.
     """
+    def lookup_bodyguards(self, grid, center, guards=3):
+        """ takes a list of text strings representing a 'grid'. 
+        Given a 'center' (row, col), returns 'guards' number of adjacent letters.
+
+               
+       e.g. guards=3, center=(3, 3)
+            A
+            B
+            C
+         JKLxDEF
+            G
+            H
+            I
+
+        returns [A, B, C, D, E, F, G, H, I, J, K, L]
+        """
+
+
+    def process_text(self, filename):
+        """ Takes a filename that holds a rectangular block of text.
+        Return a list strings from that block.
+        
+
+
+
+        """
+        # Originally for problem 3
+        
+        # Create a list of lists. Each member list is a line of text.
+        a_list = list()
+        with open(filename, encoding='utf-8') as a_file:
+            for a_line in a_file:
+                a_list.append(a_line.strip())          
+
+        return a_list
+        
+
     def get_char_count(filename):
         """ Wrapper for the problem2 solution.
         Takes the filename of a text file, and returns a dictionary. 
@@ -50,13 +87,13 @@ class HelperFunctions:
                 line_char_8 = Line_char(line + 1, char)
                 line_char_9 = Line_char(line + 1, char + 1)
                 line_char_all = ''.join([a_list[line_char_1.line][line_char_1.char],
-                                        a_list[line_char_2.line][line_char_2.char],
-                                        a_list[line_char_3.line][line_char_3.char],
-                                        a_list[line_char_4.line][line_char_4.char],
-                                        a_list[line_char_6.line][line_char_6.char],
-                                        a_list[line_char_7.line][line_char_7.char],
-                                        a_list[line_char_8.line][line_char_8.char],
-                                        a_list[line_char_9.line][line_char_9.char],
+                                         a_list[line_char_2.line][line_char_2.char],
+                                         a_list[line_char_3.line][line_char_3.char],
+                                         a_list[line_char_4.line][line_char_4.char],
+                                         a_list[line_char_6.line][line_char_6.char],
+                                         a_list[line_char_7.line][line_char_7.char],
+                                         a_list[line_char_8.line][line_char_8.char],
+                                         a_list[line_char_9.line][line_char_9.char],
                                         ])
                                 
                 yield (a_list[line][char], line_char_all)
@@ -159,6 +196,17 @@ def problem3():
     #     (x-1)+row_length  x+row_length  (x+1)+row_length 
     # If Count(outsides) = 3 big letters then success
 
+    # I think it's actually like this:
+    #    A
+    #    A
+    #    A
+    # AAAxAAA
+    #    A
+    #    A
+    #    A
+
+
+
     gen_neighbors = HelperFunctions.gen_char_neighbor('problem3_source_mess.txt')
     for char, neighbors in gen_neighbors:
         print('char={}, neighbors={}'.format(char, neighbors))
@@ -175,6 +223,30 @@ def problem3():
                 break
 
 
+def problem3_mark2():
+    """ http://www.pythonchallenge.com/pc/def/equality.html
+        One small letter, surrounded by EXACTLY three big bodyguards on each of its sides.
+    """
+
+    print("entering #3")
+
+    #char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
+
+
+    # I think it's actually like this:
+    #    A
+    #    A
+    #    A
+    # AAAxAAA
+    #    A
+    #    A
+    #    A
+
+    Hf = HelperFunctions()
+
+    gen_bodyguards = Hf.process_text('problem3_source_mess.txt')
+    for x in gen_bodyguards:
+        print(x)
 
 
 
@@ -203,4 +275,4 @@ def problem_test():
 
 if __name__ == '__main__':
     print("__main__")
-    problem3()
+    problem3_mark2()

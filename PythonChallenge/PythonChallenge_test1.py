@@ -16,10 +16,8 @@ class Test_PythonChallenge_test1(unittest.TestCase):
             test_ans = next(test_gen)
             print('test_ans={}'.format(test_ans))
             self.assertEqual((center, neighbors), test_ans)
-
     
-    def test_A(self):
-        self.fail("Not implemented")
+    
 
 if __name__ == '__main__':
     unittest.main()
