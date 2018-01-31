@@ -5,8 +5,7 @@
     <ProjectGuid>f66b48b6-95ef-4105-9a5d-b039f4fa3e65</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>PythonChallenge.py</StartupFile>
-    <SearchPath>
-    </SearchPath>
+    <SearchPath>..\..\..\..\GitHub\helperfunctions\helperfunctions</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PythonChallenge</Name>
@@ -21,6 +20,8 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="helperfunctions.py" />
+    <Compile Include="helperfunctions_test.py" />
     <Compile Include="PythonChallenge.py" />
     <Compile Include="PythonChallenge_test1.py">
       <SubType>Code</SubType>
