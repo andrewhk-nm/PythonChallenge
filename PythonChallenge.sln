@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2002
+VisualStudioVersion = 15.0.27130.2024
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "PythonChallenge", "PythonChallenge\PythonChallenge.pyproj", "{F66B48B6-95EF-4105-9A5D-B039F4FA3E65}"
+EndProject
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "helperfunctions", "..\..\..\GitHub\helperfunctions\helperfunctions\helperfunctions.pyproj", "{45286548-D230-4DEB-959A-538E4335D299}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +15,8 @@ Global
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{F66B48B6-95EF-4105-9A5D-B039F4FA3E65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F66B48B6-95EF-4105-9A5D-B039F4FA3E65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45286548-D230-4DEB-959A-538E4335D299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45286548-D230-4DEB-959A-538E4335D299}.Release|Any CPU.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

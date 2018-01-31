@@ -20,8 +20,6 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="helperfunctions.py" />
-    <Compile Include="helperfunctions_test.py" />
     <Compile Include="PythonChallenge.py" />
     <Compile Include="PythonChallenge_test1.py">
       <SubType>Code</SubType>
