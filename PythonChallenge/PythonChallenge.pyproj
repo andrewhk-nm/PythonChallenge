@@ -5,7 +5,8 @@
     <ProjectGuid>f66b48b6-95ef-4105-9a5d-b039f4fa3e65</ProjectGuid>
     <ProjectHome>.</ProjectHome>
     <StartupFile>PythonChallenge.py</StartupFile>
-    <SearchPath>..\..\..\..\GitHub\helperfunctions\helperfunctions</SearchPath>
+    <SearchPath>
+    </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <Name>PythonChallenge</Name>
@@ -20,9 +21,12 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="dependencies.py">
       <SubType>Code</SubType>
     </Compile>
+=======
+>>>>>>> parent of d673f3f... externalized the helperfunctions module
     <Compile Include="PythonChallenge.py" />
     <Compile Include="PythonChallenge_test1.py">
       <SubType>Code</SubType>
