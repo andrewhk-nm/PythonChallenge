@@ -20,6 +20,9 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="dependencies.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PythonChallenge.py" />
     <Compile Include="PythonChallenge_test1.py">
       <SubType>Code</SubType>

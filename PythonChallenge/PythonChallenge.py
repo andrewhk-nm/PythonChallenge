@@ -2,6 +2,8 @@
 http://www.pythonchallenge.com/
 """
 
+# Adds the helperfunctions path to the sys.path
+import dependencies
 import os
 import string
 from collections import namedtuple
