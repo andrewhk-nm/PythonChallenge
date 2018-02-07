@@ -8,6 +8,8 @@ import os
 import string
 from collections import namedtuple
 
+import helperfunctions as hf
+
 def problem0():
     """ http://www.pythonchallenge.com/pc/def/0.html
     Answer = 274877906944
@@ -81,7 +83,7 @@ def problem3():
 
     print("entering #3")
 
-    #char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
+    #char_dict = hf.get_char_count('problem3_source_mess.txt')
     
 
     #print('char_dict = \n{}'.format(char_dict))
@@ -115,7 +117,7 @@ def problem3():
 
 
 
-    gen_neighbors = HelperFunctions.gen_char_neighbor('problem3_source_mess.txt')
+    gen_neighbors = hf.gen_char_neighbor('problem3_source_mess.txt')
     for char, neighbors in gen_neighbors:
         print('char={}, neighbors={}'.format(char, neighbors))
         big_neighbor_count = 0
@@ -138,7 +140,7 @@ def problem3_mark2():
 
     print("entering #3")
 
-    #char_dict = HelperFunctions.get_char_count('problem3_source_mess.txt')
+    #char_dict = hf.get_char_count('problem3_source_mess.txt')
 
 
     # I think it's actually like this:
@@ -150,9 +152,7 @@ def problem3_mark2():
     #    A
     #    A
 
-    Hf = HelperFunctions()
-
-    gen_bodyguards = Hf.process_text('problem3_source_mess.txt')
+    gen_bodyguards = hf.process_text('problem3_source_mess.txt')
     for x in gen_bodyguards:
         print(x)
 
