@@ -153,9 +153,30 @@ def problem3_mark2():
     #    A
 
     gen_bodyguards = hf.process_text('problem3_source_mess.txt')
-    for x in gen_bodyguards:
-        print(x)
+    bodyguards = list(gen_bodyguards)
+    #print(bodyguards)
+    #return
+    collection_of_tests = list()
+    print(len(bodyguards))
+    input('sadf')
+    for col in range(len(bodyguards[0])):
+        print('col={} of {}'.format(col, len(bodyguards[0])))
+        for row in range(len(bodyguards)):
+            test_strip = list()
+            for d_col in range(-3, 4):
+                for d_row in range(-3, 4):
+                    if d_col and d_row:
+                        try:
+                            test_strip.append(bodyguards[row + d_row][col + d_col])
+                        except IndexError:
+                            #print('error at row={}, col={}, d_row={}, d_col={}'.format(row, col, d_row, d_col))
+                            test_strip.append('!')
+            #print('test_strip={}'.format(test_strip))
+            test_strip.append(bodyguards[row][col])
+            collection_of_tests.append(test_strip)
 
+    print('len={}'.format(len(collection_of_tests)))
+    print(collection_of_tests)
 
 
 def problem2_wiki():
